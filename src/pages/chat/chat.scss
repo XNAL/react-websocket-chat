@@ -1,0 +1,49 @@
+@import '../../styles/app.scss';
+
+.chat {
+  position: relative;
+  height: 100%;
+  background: #f3f3f3;
+  .chat-header {
+    height: 3em;
+    line-height: 3em;
+    text-align: center;
+    color: #fff;
+    background: $base-color;
+  }
+
+  .chat-footer {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    max-height: 10em;
+    border-top: 1px solid #f3f3f3;
+    background: #fff;
+    padding: 1em 0.8em 0.5em 0.8em;
+    .chat-input {
+      font-size: 1.2em;
+      line-height: 1.5em;
+      width: 100%;
+      height: 100%;
+      padding-right: 3em;
+      box-sizing: border-box;
+      border: none;
+      outline: none;
+      resize: none;
+      border-bottom: 1px solid #f3f3f3;
+
+      &:focus {
+        border-bottom-color: $base-color;
+      }
+    }
+    .send-message {
+      position: absolute;
+      right: 0.8em;
+      bottom: 0.6em;
+      font-size: 1.2em;
+      line-height: 1.5em;
+      color: #9a9a9a;
+    }
+  }
+}
