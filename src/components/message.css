@@ -135,44 +135,24 @@ body,
 #root {
   height: 100%; }
 
-.chat {
+.message-component {
+  margin: 1.5em 0 0 1em;
   position: relative;
-  height: 100%;
-  background: #f3f3f3; }
-  .chat .chat-header {
+  max-width: 80%;
+  overflow: hidden; }
+  .message-component .avatar {
+    float: left;
+    width: 3em;
     height: 3em;
-    line-height: 3em;
-    text-align: center;
-    color: #fff;
-    background: #2d8cf0; }
-  .chat .chat-footer {
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    max-height: 10em;
-    border-top: 1px solid #f3f3f3;
-    background: #fff;
-    padding: 1em 0.8em 0.5em 0.8em; }
-    .chat .chat-footer .chat-input {
-      font-size: 1.2em;
-      line-height: 1.5em;
+    border: 1px solid #9a9a9a; }
+    .message-component .avatar img {
       width: 100%;
       height: 100%;
-      padding-right: 3em;
-      box-sizing: border-box;
-      border: none;
-      outline: none;
-      resize: none;
-      border-bottom: 1px solid #f3f3f3; }
-      .chat .chat-footer .chat-input:focus {
-        border-bottom-color: #2d8cf0; }
-    .chat .chat-footer .send-message {
-      position: absolute;
-      right: 0.8em;
-      bottom: 0.6em;
-      font-size: 1.2em;
-      line-height: 1.5em;
-      color: #9a9a9a; }
-      .chat .chat-footer .send-message.can-send {
-        color: #2d8cf0; }
+      display: block; }
+  .message-component .message-content {
+    float: left;
+    margin-left: 1em;
+    padding: 0.5em;
+    color: #f0f0f0;
+    border-radius: 0.5em;
+    background: #2d8cf0; }

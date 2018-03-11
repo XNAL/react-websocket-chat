@@ -1,0 +1,29 @@
+@import '../styles/app.scss';
+
+.message-component {
+  margin: 1.5em 0 0 1em;
+  position: relative;
+  max-width: 80%;
+  overflow: hidden;
+
+  .avatar {
+    float: left;
+    width: 3em;
+    height: 3em;
+    border: 1px solid #9a9a9a;
+    img {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+  }
+
+  .message-content {
+    float: left;
+    margin-left: 1em;
+    padding: 0.5em;
+    color: #f0f0f0;
+    border-radius: 0.5em;
+    background: $base-color;
+  }
+}
