@@ -41,7 +41,8 @@ class Chat extends Component {
           <h1 className="chat-title">React Chat</h1>
         </header>
         <div className="message-list">
-          <Message/>
+          <Message isMyMessage={false} userName="小a" messageContent="测试接受"/>
+          <Message isMyMessage={true} userName="lalala" messageContent="测试发送"/>
         </div>
         <footer className="chat-footer">
           <textarea className="chat-input" rows="1" value={this.state.message} onChange={this.handleInputChange.bind(this)}/>

@@ -8,8 +8,8 @@
 
   .avatar {
     float: left;
-    width: 3em;
-    height: 3em;
+    width: 4em;
+    height: 4em;
     border: 1px solid #9a9a9a;
     img {
       width: 100%;
@@ -17,13 +17,70 @@
       display: block;
     }
   }
-
-  .message-content {
+  .user-message-info {
     float: left;
     margin-left: 1em;
-    padding: 0.5em;
-    color: #f0f0f0;
-    border-radius: 0.5em;
-    background: $base-color;
+  }
+  .user-name {
+    font-size: 1em;
+    color: #333;
+    margin-bottom: 0.8em;
+  }
+  .message-content {
+    position: relative;
+    padding: 0.7em;
+    font-size: 1em;
+    line-height: 1.2;
+    color: #666;
+    border-radius: 0.2em;
+    background: #fff;
+
+    &::before {
+      content: '';
+      width: 0;
+      height: 0;
+      position: absolute;
+      top: 0.5em;
+      left: -1.4em;
+      border-width: 0.6em 0.8em 0.6em 0.6em;
+      border-style: solid;
+      border-color: transparent #fff transparent transparent;
+    }
+  }
+
+  &.my-message {
+    float: right;
+    margin-right: 1em;
+
+    .avatar {
+      float: right;
+    }
+    .user-message-info {
+      float: right;
+      margin-left: 0;
+      margin-right: 1em;
+    }
+    .user-name {
+      text-align: right;
+    }
+
+    .message-content {
+      background: $base-color;
+      color: #fff;
+      &::before {
+        display: none;
+      }
+      &::after {
+        content: '';
+        width: 0;
+        height: 0;
+        position: absolute;
+        top: 0.5em;
+        right: -1.4em;
+        border-width: 0.6em 0.6em 0.6em 0.8em;
+        border-style: solid;
+        border-color: transparent transparent transparent $base-color;
+      }
+    }
   }
 }
