@@ -3,11 +3,13 @@
 .message-component {
   margin: 1.5em 0 0 1em;
   position: relative;
-  max-width: 80%;
+  width: 80%;
   overflow: hidden;
 
   .avatar {
-    float: left;
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 4em;
     height: 4em;
     border: 1px solid #9a9a9a;
@@ -19,7 +21,9 @@
   }
   .user-message-info {
     float: left;
-    margin-left: 1em;
+    padding-left: 5.5em;
+    max-width: 100%;
+    box-sizing: border-box;
   }
   .user-name {
     font-size: 1em;
@@ -30,17 +34,19 @@
     position: relative;
     padding: 0.7em;
     font-size: 1em;
-    line-height: 1.2;
+    line-height: 1.5;
     color: #666;
     border-radius: 0.2em;
     background: #fff;
+    word-wrap: break-word;
+    max-width: 100%;
 
     &::before {
       content: '';
       width: 0;
       height: 0;
       position: absolute;
-      top: 0.5em;
+      top: 0.8em;
       left: -1.4em;
       border-width: 0.6em 0.8em 0.6em 0.6em;
       border-style: solid;
@@ -53,12 +59,13 @@
     margin-right: 1em;
 
     .avatar {
-      float: right;
+      left: auto;
+      right: 0;
     }
     .user-message-info {
       float: right;
-      margin-left: 0;
-      margin-right: 1em;
+      padding-left: 0;
+      padding-right: 5.5em;
     }
     .user-name {
       text-align: right;
@@ -75,7 +82,7 @@
         width: 0;
         height: 0;
         position: absolute;
-        top: 0.5em;
+        top: 0.8em;
         right: -1.4em;
         border-width: 0.6em 0.6em 0.6em 0.8em;
         border-style: solid;

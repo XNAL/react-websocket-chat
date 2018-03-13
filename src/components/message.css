@@ -138,10 +138,12 @@ body,
 .message-component {
   margin: 1.5em 0 0 1em;
   position: relative;
-  max-width: 80%;
+  width: 80%;
   overflow: hidden; }
   .message-component .avatar {
-    float: left;
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 4em;
     height: 4em;
     border: 1px solid #9a9a9a; }
@@ -151,7 +153,9 @@ body,
       display: block; }
   .message-component .user-message-info {
     float: left;
-    margin-left: 1em; }
+    padding-left: 5.5em;
+    max-width: 100%;
+    box-sizing: border-box; }
   .message-component .user-name {
     font-size: 1em;
     color: #333;
@@ -160,16 +164,18 @@ body,
     position: relative;
     padding: 0.7em;
     font-size: 1em;
-    line-height: 1.2;
+    line-height: 1.5;
     color: #666;
     border-radius: 0.2em;
-    background: #fff; }
+    background: #fff;
+    word-wrap: break-word;
+    max-width: 100%; }
     .message-component .message-content::before {
       content: '';
       width: 0;
       height: 0;
       position: absolute;
-      top: 0.5em;
+      top: 0.8em;
       left: -1.4em;
       border-width: 0.6em 0.8em 0.6em 0.6em;
       border-style: solid;
@@ -178,11 +184,12 @@ body,
     float: right;
     margin-right: 1em; }
     .message-component.my-message .avatar {
-      float: right; }
+      left: auto;
+      right: 0; }
     .message-component.my-message .user-message-info {
       float: right;
-      margin-left: 0;
-      margin-right: 1em; }
+      padding-left: 0;
+      padding-right: 5.5em; }
     .message-component.my-message .user-name {
       text-align: right; }
     .message-component.my-message .message-content {
@@ -195,7 +202,7 @@ body,
         width: 0;
         height: 0;
         position: absolute;
-        top: 0.5em;
+        top: 0.8em;
         right: -1.4em;
         border-width: 0.6em 0.6em 0.6em 0.8em;
         border-style: solid;

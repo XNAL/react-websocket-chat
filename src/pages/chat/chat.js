@@ -7,7 +7,24 @@ class Chat extends Component {
     super(props);
     this.state = {
       message: '',
-      canSendMessage: false
+      canSendMessage: false,
+      messageList: [
+        {
+          isMyMessage: false,
+          userName: "小a",
+          messageContent: "测试接受"
+        },
+        {
+          isMyMessage: false,
+          userName: "小b",
+          messageContent: "二"
+        },
+        {
+          isMyMessage: true,
+          userName: "小C",
+          messageContent: "测试发送"
+        }
+      ]
     };
   }
 
@@ -30,7 +47,19 @@ class Chat extends Component {
     if (!this.state.canSendMessage) {
       return
     } else {
-      alert(this.state.message)
+      let messageList = this.state.messageList
+      messageList.push(
+        {
+          isMyMessage: true,
+          userName: "小C",
+          messageContent: this.state.message
+        }
+      )
+      this.setState({
+        message: '',
+        canSendMessage: false,
+        messageList: messageList
+      })
     }
   }
 
@@ -41,8 +70,11 @@ class Chat extends Component {
           <h1 className="chat-title">React Chat</h1>
         </header>
         <div className="message-list">
-          <Message isMyMessage={false} userName="小a" messageContent="测试接受"/>
-          <Message isMyMessage={true} userName="lalala" messageContent="测试发送"/>
+          {
+            this.state.messageList.map((message, index) => {
+              return <Message {...message} key={index} />
+            })
+          }
         </div>
         <footer className="chat-footer">
           <textarea className="chat-input" rows="1" value={this.state.message} onChange={this.handleInputChange.bind(this)}/>
