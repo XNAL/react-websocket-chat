@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './chat.css';
 import Message from '../../components/message';
+const socket = require('socket.io-client')('http://localhost:3333');
 
 class Chat extends Component {
   constructor(props) {
@@ -26,6 +27,13 @@ class Chat extends Component {
         }
       ]
     };
+  }
+
+  componentDidMount() {
+    socket.emit('joinChat', 'test')
+    socket.on('acceptMessage', data => {
+      console.log('acceptMessage', data)
+    })
   }
 
   handleInputChange(e) {
@@ -55,6 +63,7 @@ class Chat extends Component {
           messageContent: this.state.message
         }
       )
+      socket.emit('sendMessage', this.state.message)
       this.setState({
         message: '',
         canSendMessage: false,
