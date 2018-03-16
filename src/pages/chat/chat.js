@@ -7,30 +7,18 @@ class Chat extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      name: '',
       message: '',
       canSendMessage: false,
-      messageList: [
-        {
-          isMyMessage: false,
-          userName: "小a",
-          messageContent: "测试接受"
-        },
-        {
-          isMyMessage: false,
-          userName: "小b",
-          messageContent: "二"
-        },
-        {
-          isMyMessage: true,
-          userName: "小C",
-          messageContent: "测试发送"
-        }
-      ]
+      messageList: []
     };
   }
 
   componentDidMount() {
-    socket.emit('joinChat', 'test')
+    this.setState({
+      name: this.props.location.state.name
+    })
+    socket.emit('joinChat', this.props.location.state.name)
     socket.on('acceptMessage', data => {
       console.log('acceptMessage', data)
     })
@@ -59,7 +47,7 @@ class Chat extends Component {
       messageList.push(
         {
           isMyMessage: true,
-          userName: "小C",
+          userName: this.state.name,
           messageContent: this.state.message
         }
       )
