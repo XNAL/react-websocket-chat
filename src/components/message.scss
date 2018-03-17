@@ -90,4 +90,12 @@
       }
     }
   }
+  &.remind {
+    width: 100%;
+    margin: 1.5em 0;
+    .remind-message {
+      color: #9a9a9a;
+      text-align: center;
+    }
+  }
 }

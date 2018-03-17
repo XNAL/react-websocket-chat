@@ -30,7 +30,7 @@ io.on('connection', function (socket) {
       console.log('disconnect');
       let user = socketMaps[socket.id];
       delete socketMaps[socket.id];
-      if (user.userName) {
+      if (user && user.userName) {
         // 通知客户端有人离开
         socket.broadcast.emit('leaveChatRemind', user.userName);
       }

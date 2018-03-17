@@ -19,8 +19,43 @@ class Chat extends Component {
       name: this.props.location.state.name
     })
     socket.emit('joinChat', this.props.location.state.name)
+    this.setState({
+      messageList: [
+        {
+          isRemind: true,
+          isMyMessage: false,
+          userName: '',
+          messageContent: `你已加入群聊`
+        }
+      ]
+    })
     socket.on('acceptMessage', data => {
-      console.log('acceptMessage', data)
+      let messageList = this.state.messageList
+      messageList.push(
+        {
+          isRemind: false,
+          isMyMessage: false,
+          userName: data.userName,
+          messageContent: data.message
+        }
+      )
+      this.setState({
+        messageList: messageList
+      })
+    })
+    socket.on('joinChatRemind', data => {
+      let messageList = this.state.messageList
+      messageList.push(
+        {
+          isRemind: true,
+          isMyMessage: false,
+          userName: '',
+          messageContent: `${data} 加入群聊`
+        }
+      )
+      this.setState({
+        messageList: messageList
+      })
     })
   }
 

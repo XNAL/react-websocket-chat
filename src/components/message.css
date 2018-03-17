@@ -207,3 +207,9 @@ body,
         border-width: 0.6em 0.6em 0.6em 0.8em;
         border-style: solid;
         border-color: transparent transparent transparent #2d8cf0; }
+  .message-component.remind {
+    width: 100%;
+    margin: 1.5em 0; }
+    .message-component.remind .remind-message {
+      color: #9a9a9a;
+      text-align: center; }
