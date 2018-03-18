@@ -6,13 +6,13 @@ export default class Home extends Component {
     super(props);
     this.state = {
       name: ''
-    }
+    };
   }
 
   handleInputChange(e) {
     this.setState({
       name: e.target.value
-    })
+    });
   }
 
   handleKeyPress(e) {
@@ -20,7 +20,7 @@ export default class Home extends Component {
       this.props.history.push({
         pathname: '/chat',
         state: { name: this.state.name }
-      })
+      });
     }
   }
 

@@ -140,11 +140,17 @@ body,
   height: 100%;
   background: #f3f3f3; }
   .chat .chat-header {
+    position: relative;
     height: 3em;
     line-height: 3em;
     text-align: center;
     color: #fff;
     background: #2d8cf0; }
+    .chat .chat-header .back {
+      position: absolute;
+      top: 0;
+      left: 0.5em;
+      font-size: 2em; }
   .chat .chat-footer {
     position: absolute;
     left: 0;

@@ -13,7 +13,10 @@ io.on('connection', function (socket) {
       };
       socketMaps[socket.id] = user;
       // 通知其他人有人加入聊天
-      socket.broadcast.emit('joinChatRemind', userName);
+      socket.broadcast.emit('joinChatRemind', {
+        userName: userName,
+        createTime: Date.now()
+      });
     });
 
     // 监听发送消息
@@ -22,7 +25,8 @@ io.on('connection', function (socket) {
       // 通知客户端接受消息
       socket.broadcast.emit('acceptMessage', {
         userName: user.userName,
-        message: message
+        message: message,
+        createTime: Date.now()
       });
     });
 

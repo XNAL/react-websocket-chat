@@ -3,7 +3,7 @@ import './message.css';
 
 export default class Message extends Component {
   render () {
-    let message = ''
+    let message = '';
     if (this.props.isRemind) {
       message = <div className="message-component remind">
         <div className="remind-message">
